@@ -1,0 +1,69 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Guía de Instalación</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="ion-padding">
+  <div class="guide-header">
+    <img src="assets/icon/favicon.png" alt="CLI Logo" class="cli-logo" />
+    <h1>¡Bienvenido a 3CB CLI!</h1>
+    <p>Empieza a gestionar con facilidad y accede a tus plantillas favoritas.</p>
+  </div>
+
+  <!-- Paso 1 -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Paso 1: Instalar el CLI</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Para instalar el CLI globalmente, abre tu terminal y ejecuta el siguiente comando:</p>
+      <pre class="code-snippet"><code>npm install -g 3cb-cli</code></pre>
+      <p>Esto hará que el comando <code>3cb</code> esté disponible en tu sistema.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Paso 2 -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Paso 2: Iniciar Sesión</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Para acceder a plantillas premium, primero inicia sesión en tu cuenta:</p>
+      <pre class="code-snippet"><code>3cb login</code></pre>
+      <p>Se te pedirá que ingreses tu correo electrónico y contraseña.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Paso 3 -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Paso 3: Ver Plantillas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Para listar las plantillas gratuitas disponibles, ejecuta:</p>
+      <pre class="code-snippet"><code>3cb free</code></pre>
+      <p>Si ya iniciaste sesión, también podrás acceder a las plantillas premium:</p>
+      <pre class="code-snippet"><code>3cb premium</code></pre>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Paso 4 -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Paso 4: Descargar una Plantilla</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Para descargar una plantilla específica, ejecuta el comando:</p>
+      <pre class="code-snippet"><code>3cb download "Nombre de la Plantilla"</code></pre>
+      <p>Por ejemplo, para descargar la "Plantilla Gratuita 1", usa:</p>
+      <pre class="code-snippet"><code>3cb download "Plantilla Gratuita 1"</code></pre>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Ayuda y enlaces -->
+  <div class="guide-footer">
+    <p>¿Tienes problemas? Consulta nuestra <a href="#">documentación oficial</a> o <a href="#">contáctanos</a>.</p>
+    <ion-button expand="full" color="secondary" routerLink="/home">Volver al Inicio</ion-button>
+  </div>
+</ion-content>

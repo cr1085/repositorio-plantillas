@@ -1,0 +1,22 @@
+.hero-section {
+  text-align: center;
+  background: linear-gradient(to bottom, #4a90e2, #007aff);
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.hero-section h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-section ion-button {
+  --background: #ff9500;
+  --border-radius: 8px;
+}

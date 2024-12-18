@@ -1,0 +1,39 @@
+.premium-content {
+  --background: #f4f5f8;
+
+  .premium-header {
+    text-align: center;
+    background-color: #007aff;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+  }
+
+  .pricing-section {
+    text-align: center;
+    margin: 20px;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+  }
+
+  ion-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+
+    ion-card-title {
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+
+  <div class="payment-instructions">
+    <h2>Opciones de Pago</h2>
+    <p>Elige uno de los métodos de pago a continuación. Una vez realizado el pago, envía el comprobante para activar tu plantilla.</p>
+
+    <!-- Bancolombia QR -->
+    <div class="payment-option">
+      <h3>Paga con Bancolombia</h3>
+      <img src="assets/qr-bancolombia.png" alt="QR Bancolombia" class="qr-code" />
+      <p><strong>Número de Cuenta:</strong> 01234567890</p>
+      <p><strong>Tipo de Cuenta:</strong> Ahorros</p>
+      <p><strong>Titular:</strong> Tu Nombre</p>
+    </div>
+
+    <!-- Nequi QR -->
+    <div class="payment-option">
+      <h3>Paga con Nequi</h3>
+      <img src="assets/qr-nequi.png" alt="QR Nequi" class="qr-code" />
+      <p><strong>Número Nequi:</strong> 3001234567</p>
+    </div>
+
+    <!-- Formulario de envío de comprobante -->
+    <div class="send-receipt">
+      <h3>Enviar Comprobante</h3>
+      <form (submit)="sendPaymentProof($event)">
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="userName" name="name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Correo Electrónico</ion-label>
+          <ion-input type="email" [(ngModel)]="userEmail" name="email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Adjuntar Comprobante</ion-label>
+          <ion-input type="file" (change)="onFileSelected($event)" required></ion-input>
+        </ion-item>
+        <ion-button expand="block" type="submit" color="primary">Enviar Comprobante</ion-button>
+      </form>
+    </div>
+  </div>
+
+</ion-content>

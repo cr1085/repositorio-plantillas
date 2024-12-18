@@ -1,0 +1,144 @@
+<ion-content [fullscreen]="true" >
+
+  <!-- Hero Section -->
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Bienvenido a 3CB Plantillas</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <app-head></app-head>
+
+ <!-- Vista para usuarios autenticados -->
+  <div class="hero-section" *ngIf="user; else guestSection">
+    <h1>Bienvenido, {{ user.email }} 👋</h1>
+    <p>Nos alegra verte de nuevo en 3CB Plantillas</p>
+    <ion-button (click)="logout()" color="danger">Cerrar Sesión</ion-button>
+  </div>
+
+
+
+  <!-- Categorías Destacadas -->
+  <ion-grid class="categories-section">
+ <!-- <ion-button color="primary" (click)="login()">Iniciar Sesión / Registrarse</ion-button> -->
+
+ <!-- <div *ngIf="isLoggedIn; else notLoggedIn">
+  <ion-button color="danger" (click)="logout()">Cerrar Sesión</ion-button>
+</div> -->
+
+<ng-template #notLoggedIn>
+  <ion-button color="primary" (click)="login()">Iniciar Sesión / Registrarse</ion-button>
+</ng-template>
+
+  <!-- Componente de Autenticación -->
+  <!-- <app-auth #authComponent (authSuccess)="onAuthSuccess()"></app-auth> -->
+
+    <ion-row>
+      <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/categorias/web.png" alt="Plantillas Word"/>
+          <ion-card-content>
+            <h3>Plantillas Web</h3>
+            <ion-button fill="clear" color="primary" (click)="navigateTo('tab1')">Ver más</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/categorias/pwa.png" alt="Plantillas Excel"/>
+          <ion-card-content>
+            <h3>Plantillas PWA</h3>
+            <ion-button fill="clear" color="primary" (click)="navigateTo('tab2')">Ver más</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/categorias/ang.png" alt="Plantillas PowerPoint"/>
+          <ion-card-content>
+            <h3>Plantillas Angular</h3>
+            <ion-button fill="clear" color="primary" (click)="navigateTo('tab3')">Ver más</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/categorias/reac.png" alt="Plantillas HTML"/>
+          <ion-card-content>
+            <h3>Plantillas React</h3>
+            <ion-button fill="clear" color="primary" (click)="navigateTo('tab4')">Ver más</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+       <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/categorias/php.png" alt="Plantillas HTML"/>
+          <ion-card-content>
+            <h3>Plantillas Php</h3>
+            <ion-button fill="clear" color="primary" (click)="navigateTo('tab5')">Ver más</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+<div class="popular-templates-section">
+  <h2>Plantillas Populares</h2>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let template of popularTemplates">
+      <ion-card class="popular-card">
+        <div class="card-image">
+          <img [src]="template.imagen" alt="{{ template.nombre }}" />
+        </div>
+        <ion-card-content>
+          <h3>{{ template.nombre }}</h3>
+          <p>{{ template.descripcion }}</p>
+          <ion-button
+            *ngIf="!template.premium"
+            fill="solid"
+            color="success"
+            (click)="viewTemplate(template)">
+            Descargar Gratis
+          </ion-button>
+
+          <ion-button
+            *ngIf="template.premium && hasAccess"
+            fill="solid"
+            color="tertiary"
+            (click)="viewTemplate(template)">
+            Descargar Premium
+          </ion-button>
+
+          <ion-button
+            *ngIf="template.premium && !hasAccess"
+            fill="outline"
+            color="danger"
+            (click)="upgradeToPremium()">
+            Adquirir Premium
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</div>
+
+
+  <!-- Call to Action (CTA) -->
+  <div class="cta-section">
+    <h2>¡No esperes más!</h2>
+    <p>Comienza a usar nuestras plantillas y acelera tus proyectos</p>
+    <!-- <ion-button expand="block" color="secondary" size="large" routerLink="https://3cbsoluciones.com/">3cb soluciones</ion-button> -->
+  <a href="https://3cbsoluciones.com/" style="text-decoration: none;">
+  <ion-button expand="block" color="secondary" size="large">
+    <img src="assets/icon/favicon.png" alt="3cb">
+    3CB SOLUCIONES
+  </ion-button>
+
+</a>
+
+  </div>
+
+</ion-content>

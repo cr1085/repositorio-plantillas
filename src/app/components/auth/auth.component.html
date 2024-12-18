@@ -1,0 +1,37 @@
+<!-- Modal de Login -->
+<ion-modal [isOpen]="showLoginModal" (willDismiss)="showLoginModal = false">
+  <div class="login-container">
+    <h3>Iniciar Sesión</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin($event)">
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input type="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password" required></ion-input>
+      </ion-item>
+      <ion-button expand="block" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</ion-button>
+      <ion-button fill="clear" (click)="switchToRegister()">¿No tienes cuenta? Regístrate</ion-button>
+    </form>
+  </div>
+</ion-modal>
+
+<!-- Modal de Registro -->
+<ion-modal [isOpen]="showRegisterModal" (willDismiss)="showRegisterModal = false">
+  <div class="login-container">
+    <h3>Registrarse</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister($event)">
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input type="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password" required></ion-input>
+      </ion-item>
+      <ion-button expand="block" type="submit" [disabled]="!registerForm.valid">Registrarse</ion-button>
+      <ion-button fill="clear" (click)="switchToLogin()">¿Ya tienes cuenta? Inicia sesión</ion-button>
+    </form>
+  </div>
+</ion-modal>

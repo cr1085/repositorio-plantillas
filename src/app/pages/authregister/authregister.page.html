@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true" class="register-page">
+<app-head></app-head>
+
+  <div class="register-container">
+    <h2>Registrarse</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-button expand="block" type="submit" [disabled]="!registerForm.valid">Registrarse</ion-button>
+    </form>
+    <ion-button fill="clear" color="primary" (click)="navigateToLogin()">¿Ya tienes cuenta? Inicia sesión</ion-button>
+  </div>
+
+   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="navegar()">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

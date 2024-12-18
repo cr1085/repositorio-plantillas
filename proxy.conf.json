@@ -1,0 +1,8 @@
+{
+  "/plantillas": {
+    "target": "https://cli3cb.3cbsoluciones.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

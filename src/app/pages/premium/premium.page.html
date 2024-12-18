@@ -1,0 +1,81 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Suscripción Premium</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" class="premium-content">
+  <div class="premium-header">
+    <h1>¡Hazte Premium!</h1>
+    <p>Accede a plantillas exclusivas y lleva tus proyectos al siguiente nivel.</p>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Beneficios de ser Premium</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ul>
+        <li>Acceso ilimitado a plantillas premium.</li>
+        <li>Soporte prioritario.</li>
+        <li>Actualizaciones exclusivas.</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="pricing-section">
+    <h2>Elige tu plan</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Free Plan</ion-card-title>
+            </ion-card-header>
+            <img src="assets/planes/free.png">
+            <ion-card-content>
+              <p>$0 USD / mes</p>
+              <ion-button expand="block" color="primary" (click)="subscribe('monthly')">
+                Suscribirse
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Monthly Plan</ion-card-title>
+            </ion-card-header>
+            <img src="assets/planes/month.png">
+            <ion-card-content>
+              <p>$9.99 USD / month</p>
+              <ion-button expand="block" color="primary" (click)="subscribe('monthly')">
+                Suscribirse
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Annual Plan</ion-card-title>
+            </ion-card-header>
+            <img src="assets/planes/years.png">
+            <ion-card-content>
+              <p>$99.99 USD / year</p>
+              <ion-button expand="block" color="success" (click)="subscribe('yearly')">
+                Suscribirse
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="navegar()">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>
