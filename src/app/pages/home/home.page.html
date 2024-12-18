@@ -10,11 +10,11 @@
   <app-head></app-head>
 
  <!-- Vista para usuarios autenticados -->
-  <div class="hero-section" *ngIf="user; else guestSection">
+  <!-- <div class="hero-section" *ngIf="user; else guestSection">
     <h1>Bienvenido, {{ user.email }} 👋</h1>
     <p>Nos alegra verte de nuevo en 3CB Plantillas</p>
     <ion-button (click)="logout()" color="danger">Cerrar Sesión</ion-button>
-  </div>
+  </div> -->
 
 
 
@@ -26,9 +26,9 @@
   <ion-button color="danger" (click)="logout()">Cerrar Sesión</ion-button>
 </div> -->
 
-<ng-template #notLoggedIn>
+<!-- <ng-template #guestSection>
   <ion-button color="primary" (click)="login()">Iniciar Sesión / Registrarse</ion-button>
-</ng-template>
+</ng-template> -->
 
   <!-- Componente de Autenticación -->
   <!-- <app-auth #authComponent (authSuccess)="onAuthSuccess()"></app-auth> -->

@@ -1,5 +1,16 @@
-<div class="hero-section">
+<div class="hero-section" *ngIf="!isLoggedIn">
     <h1>Encuentra la plantilla perfecta para tu proyecto</h1>
     <p>Explora cientos de plantillas para Word, Excel, PowerPoint y más.</p>
-    <ion-button (click)="getStarted()">Get Started</ion-button>
+    <!-- <ion-button (click)="getStarted()">Get Started</ion-button> -->
+  <ion-button color="primary" (click)="login()">Iniciar Sesión / Registrarse</ion-button>
   </div>
+
+ <div class="hero-section" *ngIf="isLoggedIn">
+    <h1>Bienvenido, {{ user.email }} 👋</h1>
+    <p>Nos alegra verte de nuevo en 3CB Plantillas</p>
+    <ion-button (click)="logout()" color="danger">Cerrar Sesión</ion-button>
+  </div>
+
+<!-- <ng-template #guestSection>
+  <ion-button color="primary" (click)="login()">Iniciar Sesión / Registrarse</ion-button>
+</ng-template> -->

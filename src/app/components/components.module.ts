@@ -22,7 +22,8 @@ import { HeadComponent } from './head/head.component';
   imports: [
     IonicModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
