@@ -1,0 +1,112 @@
+<ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>Mecanismo de pago</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="form-container">
+        <h2>Detalles del Pago</h2>
+        <ion-item *ngIf="!passpayment">
+          <ion-label position="stacked">Plantilla</ion-label>
+          <ion-input
+            [(ngModel)]="templateId"
+            placeholder="ID de la Plantilla"
+            readonly
+          ></ion-input>
+        </ion-item>
+        <ion-item *ngIf="passpayment">
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input
+            [(ngModel)]="name"
+            placeholder="Nombre del pagador"
+          ></ion-input>
+        </ion-item>
+        <ion-item *ngIf="passpayment">
+          <ion-label position="stacked" >Plantilla</ion-label>
+          <ion-input
+            [(ngModel)]="nametemplate"
+            placeholder="Plantilla"
+            readonly
+          ></ion-input>
+        </ion-item>
+        <ion-item *ngIf="passpayment">
+          <ion-label position="stacked" >Valor a pagar</ion-label>
+          <ion-input
+            [(ngModel)]="price"
+            type="number"
+            placeholder="0.00"
+            readonly
+          ></ion-input>
+        </ion-item>
+        <ion-item *ngIf="passpayment">
+          <ion-label position="stacked" >Fecha</ion-label>
+          <ion-datetime
+            [(ngModel)]="date"
+            presentation="date"
+            readonly
+          ></ion-datetime>
+        </ion-item>
+
+
+
+        <ion-button
+          *ngIf="!passpayment"
+          expand="block"
+          color="primary"
+          (click)="purchaseTemplate()"
+        >
+          Solicitar pago
+        </ion-button>
+
+        <div class="qr-section" *ngIf="passpayment">
+          <h3>Escanea y paga con Nequi</h3>
+          <img src="assets/qr/qr-nequi.jpg" alt="Código QR de Nequi" />
+        </div>
+
+        <h2 class="invoice-title" *ngIf="passpayment">Factura de Pago</h2>
+        <div class="invoice-info" *ngIf="passpayment">
+          <p><strong>ID de Pago:</strong> {{ datapayment.paymentId }}</p>
+          <p>
+            <strong>Nombre de la Plantilla:</strong>
+            {{ datapayment.templateName }}
+          </p>
+          <p>
+            <strong>ID de la Plantilla:</strong> {{ datapayment.templateId }}
+          </p>
+          <p><strong>Precio:</strong> ${{ datapayment.price }}</p>
+          <p>
+            <strong>Estado:</strong>
+            <span
+              [class.completed]="datapayment.status === 'completed'"
+              [class.pending]="datapayment.status === 'pending'"
+            >
+              {{ datapayment.status | titlecase }}
+            </span>
+          </p>
+        </div>
+
+        <div class="file-upload" *ngIf="passpayment">
+          <h3>Adjuntar evidencia de pago</h3>
+          <input
+            type="file"
+            (change)="onFileSelected($event)"
+            accept="image/*"
+          />
+        </div>
+
+         <!-- Mensaje de error -->
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+        <div class="actions" *ngIf="passpayment">
+          <ion-button expand="block" color="primary" (click)="confirmPayment()">Confirmar Pago</ion-button>
+        </div>
+
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

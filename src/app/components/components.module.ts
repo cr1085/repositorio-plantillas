@@ -5,6 +5,7 @@ import { TemplateCardComponent } from './template-card/template-card.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeadComponent } from './head/head.component';
+import { PaymentmodalComponent } from './paymentmodal/paymentmodal.component';
 
 
 
@@ -12,12 +13,14 @@ import { HeadComponent } from './head/head.component';
   declarations: [
     AuthComponent,
     TemplateCardComponent,
-    HeadComponent
+    HeadComponent,
+    PaymentmodalComponent
   ],
   exports: [
     AuthComponent,
     TemplateCardComponent,
-    HeadComponent
+    HeadComponent,
+    PaymentmodalComponent
   ],
   imports: [
     IonicModule,

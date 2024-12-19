@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 // Importa HttpClientModule
 import { HttpClientModule } from '@angular/common/http';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
     HttpClientModule, // Agrega aquí HttpClientModule
+    ComponentsModule
   ],
   declarations: [Tab1Page]
 })

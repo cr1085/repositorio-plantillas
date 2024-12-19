@@ -13,7 +13,7 @@ export class TemplateService {
 
   // private baseUrl = URL;
   private baseUrl = URL;
-  private baseUrlPopulars = URLPOLPULARS;
+  private baseUrlTwo = URLPOLPULARS;
 
   private http = inject(HttpClient);
   private userPremiumStatus = false;
@@ -28,7 +28,7 @@ export class TemplateService {
 
 
   getPopularTemplates(): Observable<any> {
-    return this.http.get(`${this.baseUrlPopulars}/popular-templates`);
+    return this.http.get(`${this.baseUrlTwo}/popular-templates`);
   }
 
   // registerView(templateId: number): Observable<any> {
@@ -36,7 +36,7 @@ export class TemplateService {
   // }
 
   registerView(category: string, id: number): Observable<any> {
-    return this.http.post(`${this.baseUrlPopulars}/register-view/${category}/${id}`, {});
+    return this.http.post(`${this.baseUrlTwo}/register-view/${category}/${id}`, {});
   }
 
 
@@ -47,6 +47,21 @@ export class TemplateService {
 
   setPremiumUserStatus(status: boolean) {
     this.userPremiumStatus = status;
+  }
+
+  purchaseTemplate(templateId: number): Observable<any> {
+    return this.http.post(`${this.baseUrlTwo}/purchase-template`, { templateId });
+  }
+
+
+  // Inicia el pago
+  startPayment(templateId: number): Observable<any> {
+    return this.http.post(`${this.baseUrlTwo}/start-payment`, { templateId });
+  }
+
+  // Confirma el pago
+  confirmPayment(paymentId: string): Observable<any> {
+    return this.http.post(`${this.baseUrlTwo}/confirm-payment`, { paymentId });
   }
 
 

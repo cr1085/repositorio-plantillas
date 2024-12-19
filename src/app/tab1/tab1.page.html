@@ -17,16 +17,28 @@
     <h2>Plantillas Gratuitas</h2>
     <ion-grid>
       <ion-row>
-        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let template of freeTemplates">
+        <ion-col
+          size="12"
+          size-md="6"
+          size-lg="4"
+          *ngFor="let template of freeTemplates"
+        >
           <ion-card>
-            <ion-img [src]="template.imagen" alt="{{ template.nombre }}"></ion-img>
+            <ion-img
+              [src]="template.imagen"
+              alt="{{ template.nombre }}"
+            ></ion-img>
             <ion-card-header>
               <ion-card-title>{{ template.nombre }}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
               <p>{{ template.descripcion }}</p>
             </ion-card-content>
-            <ion-button expand="block" color="success" (click)="openTemplate(template.url)">
+            <ion-button
+              expand="block"
+              color="success"
+              (click)="openTemplate(template.url)"
+            >
               Descargar Gratis
             </ion-button>
           </ion-card>
@@ -40,9 +52,17 @@
     <h2>Plantillas Premium</h2>
     <ion-grid>
       <ion-row>
-        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let template of premiumTemplates">
+        <ion-col
+          size="12"
+          size-md="6"
+          size-lg="4"
+          *ngFor="let template of premiumTemplates"
+        >
           <ion-card>
-            <ion-img [src]="template.imagen" alt="{{ template.nombre }}"></ion-img>
+            <ion-img
+              [src]="template.imagen"
+              alt="{{ template.nombre }}"
+            ></ion-img>
             <ion-card-header>
               <ion-card-title>{{ template.nombre }}</ion-card-title>
               <ion-badge color="warning">Premium</ion-badge>
@@ -51,13 +71,62 @@
               <p>{{ template.descripcion }}</p>
             </ion-card-content>
             <!-- Botón dinámico -->
-            <ion-button expand="block" color="tertiary" *ngIf="isPremiumUser" (click)="openTemplate(template.url)">
+            <ion-button
+              expand="block"
+              color="tertiary"
+              *ngIf="isPremiumUser"
+              (click)="openTemplate(template.url)"
+            >
               Descargar Premium
             </ion-button>
-            <ion-button expand="block" color="danger" *ngIf="!isPremiumUser" (click)="upgradeToPremium()">
+            <ion-button
+              expand="block"
+              color="danger"
+              *ngIf="!isPremiumUser"
+              (click)="upgradeToPremium()"
+            >
               Adquirir Premium
             </ion-button>
           </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Sección de plantillas de pago único -->
+  <div class="template-section">
+    <h2>Plantillas de Pago Único</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col
+          size="12"
+          size-md="6"
+          size-lg="4"
+          *ngFor="let template of singlePurchaseTemplates"
+        >
+          <ion-card>
+            <ion-img
+              [src]="template.imagen"
+              alt="{{ template.nombre }}"
+            ></ion-img>
+            <ion-card-header>
+              <ion-card-title>{{ template.nombre }}</ion-card-title>
+              <ion-badge color="primary">Pago Único</ion-badge>
+            </ion-card-header>
+            <ion-card-content>
+              <p>{{ template.descripcion }}</p>
+              <p>Precio: ${{ template.price }}</p>
+            </ion-card-content>
+            <ion-button id="open-modal" expand="block"
+              >Comprar plantilla</ion-button
+            >
+          </ion-card>
+          <app-paymentmodal
+            [price]="template.price"
+            [date]="currentDate"
+            [nametemplate]="template.nombre"
+            [templateId]="template.id"
+          ></app-paymentmodal>
         </ion-col>
       </ion-row>
     </ion-grid>
